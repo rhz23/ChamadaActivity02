@@ -1,5 +1,8 @@
 package com.rzaninelli.chamadaactivity02;
 
+import static com.rzaninelli.chamadaactivity02.MainActivity.*;
+
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +13,10 @@ public class MostrarDadosActivity extends AppCompatActivity {
     public static final String NOME = "NOME";
     public static final String POSSUI_CARRO = "POSSUI_CARRO";
     public static final String TIPO = "TIPO";
+    public static final String MODO = "MODO";
+    public static final String NOTA = "NOTA";
+
+    private int modo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +52,27 @@ public class MostrarDadosActivity extends AppCompatActivity {
             TextView textViewDados = findViewById(R.id.textViewDados);
 
             textViewDados.setText(saida);
+
+            modo = bundle.getInt(MODO, 0);
         }
 
         setTitle(getString(R.string.dados_cadastrados));
+    }
+
+    private void finalizar() {
+
+        if (modo == PEDIR_NOTA) {
+            Intent intent = new Intent();
+            intent.putExtra(NOTA, 1000);
+
+            setResult(Activity.RESULT_OK, intent);
+        }
+
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finalizar();
     }
 }

@@ -10,4 +10,6 @@
     <string name="nao">Não</string>
     <string name="nenhum_tipo_escolhido">Nenhum tipo escolhido</string>
     <string name="dados_cadastrados">Dados Cadastrados</string>
+    <string name="enviar_pedir_nota">Enviar com nota</string>
+    <string name="nota">\"Nota: \"</string>
 </resources>
